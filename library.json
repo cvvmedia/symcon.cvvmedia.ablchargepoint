@@ -1,0 +1,10 @@
+{
+    "id":               "{3CAFAFED-B96B-470D-131F-5FD9281796B4}",
+    "name":             "ABL ChargePoint Library",
+    "author":           "Dipl.-Ing. (FH) Michael Scholze",
+    "url":              "https://www.cvvmedia.de",
+    "compatibility":    { "version": "5.2" },
+    "version":          "1.0",
+    "build":            0,
+    "date":             1607775676
+}

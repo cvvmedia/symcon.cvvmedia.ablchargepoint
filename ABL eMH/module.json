@@ -1,0 +1,12 @@
+{
+    "id":                   "{ACFABF7B-BB57-5245-DFE5-4EC7B786CFEF}",
+    "name":                 "ABL eMH",
+    "type":                 3,
+    "vendor":               "ABL",
+    "aliases":              ["eMH1", "eMH2", "eMH3"],
+    "parentRequirements":   [ "{5D9BE907-4A52-C23B-3A5F-52802555C983}" ],
+    "childRequirements":    [],
+    "implemented":          [ "{1B55984F-DD7A-1233-D33F-0D1D2198228D}" ],
+    "prefix":               "ABLEMH",
+    "url":                  "https://www.cvvmedia.de"
+}

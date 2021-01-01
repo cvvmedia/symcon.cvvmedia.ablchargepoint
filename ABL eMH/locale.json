@@ -1,0 +1,40 @@
+{
+    "translations": {
+        "de": {
+            "A Module from":                        "Ein Modul von",
+            "Device ID":                            "Geräte ID",
+            "Lock Outlet":                          "Anschluss sperren",
+            "Unlock Outlet":                        "Anschluss freigeben",
+            "Set Max Current 6A":                   "Setze Max. Ladestrom auf 6A",
+            "Set Max Current 10A":                  "Setze Max. Ladestrom auf 10A",
+            "Set Max Current 16A":                  "Setze Max. Ladestrom auf 16A",
+            "Reset Device":                         "Gerät neu starten",
+            "Do you really want to restart the device?":    "Wollen Sie wirklich das Gerät neu starten?",
+            "Set DeviceID":                         "GeräteID setzen",
+            "Do you really want to set the device ID? Be sure that only one device is connected to the bus!":    "Wollen Sie wirklich die GeräteID setzen? Bitte achten Sie darauf, dass nur ein Gerät am Bus angeschlossen ist!",
+
+            "EV connected":                         "Fahrzeug angeschlossen",
+            "EV has charge release":                "Fahrzeug hat Ladefreigabe",
+            "EV charging":                          "Fahrzeug lädt",
+            "Outlet Locked":                        "Anschluss gesperrt",
+            "Outlet State":                         "Zustand",
+            "Current L1":                           "Ladestrom L1",
+            "Current L2":                           "Ladestrom L2",
+            "Current L3":                           "Ladestrom L3",
+            "Max Output Current":                   "Maximaler Ladestrom",
+            "Device Error":                         "Gerätefehler",
+            "Communication Error":                  "Kommunikationsfehler",
+            "Input EN1":                            "Schalteingang EN1",
+            "Input EN2":                            "Schalteingang EN2",
+            "Device Type":                          "Gerätetyp",
+            "Device Serialnumber":                  "Seriennummer",
+
+            "No":                                   "Nein",
+            "Yes":                                  "Ja",
+            "OK":                                   "OK",
+            "Error":                                "Fehler",
+            "Communication error! No data received in the last 10 seconds.": "Kommunikationsfehler! Keine Daten in den letzten 10 Sekunden empfangen.",
+            "The device reports an error. Check the outlet state variable!": "Das Gerät ist im Fehlerzustand. Bitte Zustandsvariable überprüfen!"
+        }
+    }
+}
