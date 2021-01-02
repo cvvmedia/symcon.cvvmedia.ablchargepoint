@@ -1,7 +1,8 @@
 # ABL ChargePoint Splitter
 Der ABL Chargepoint Splitter dient zur Kommunikation mit dem RS485 Bus, woran ein oder mehrere Ladepunkte
-der Firma ABL angeschlossen sind. Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, soweit diese über
-RS485 Bus ansprechbar sind.
+vom Typ eMH der Firma ABL Sursum angeschlossen sind. Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt,
+wenn diese über den RS485-Bus angeschlossen werden. Der Splitter unterstützt sowohl den Zugriff über einen COM-Port,
+also auch über TCP/IP mittels Converter auf den RS485 Bus.
 
 ### Inhaltsverzeichnis
 
@@ -19,14 +20,16 @@ Dies ist die Splitterinstanz, die die Kommunikation mit dem Bus koordiniert.
 
 - IP-Symcon ab Version 5.2
 - Alle ABL Ladepunkte müssen via RS485 an einem Bus angeschlossen sein
-- Der RS485 Bus muss über ein RS485 to Ethernet Adapter übers Netzwerk erreichbar sein (z.B. USR-TCP232-304)
-- Der RS485 Ethernet Adapter muss den Bus wie folgt ansprechen: 38400 Baud, 8Bit, Parity Even, 1 Stop Bit
-- Bei mehreren Ladepunkten muss jedes Gerät eine andere GeräteID haben
+- Jeder Ladepunkt benötigt eine eindeutige Geräte ID (Zu setzen über eMH Instanz oder via ABL Tool)
+- Der RS485 Bus kann entweder über eine Client Socket oder COM Port Instanz angesprochen werden
+- Bei Nutzung des Client Sockets muss der RS485 Bus über einen "RS485 to Ethernet Adapter" (z.B. USR-TCP232-304) angebunden werden
+- Der RS485 Bus benötigt folgende Einstellungen: 38400 Baud, 8Bit, Parity Even, 1 Stop Bit
 
 
 ### 3. Software-Installation
 
 * Über den Module Store das 'ABL ChargePoint Splitter'-Modul installieren.
+* Alternativ das Repository manuell in das Module Verzeichnis der Symcon Installation kopieren.
 
 
 ### 4. Einrichten der Instanzen in IP-Symcon

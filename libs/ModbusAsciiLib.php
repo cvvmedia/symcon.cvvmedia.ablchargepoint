@@ -2,7 +2,7 @@
 
 
 
-// Berechnet die LRC_Checksumme für Modbus Ascii
+// Berechnet die LRC_Checksumme für Modbus ASCII
 function ModBusAscii_CalcLrc($hexstr) {
 	// Umwandeln des HexStr in ByteArray
 	$byteArr=array_map('hexdec', str_split($hexstr, 2));
@@ -41,7 +41,7 @@ function ModBusAscii_CreateRegisterWriteCmd($destaddr, $start, $data)
 	$cmd=$cmd.strtoupper(sprintf('%02x', 0x10));		// function
 	$cmd=$cmd.strtoupper(sprintf('%04x', $start));
 	$cmd=$cmd.strtoupper(sprintf('%04x', 1));			// ein register schreiben
-	$cmd=$cmd.strtoupper(sprintf('%02x', 2));			// Anzahl bytes (1 Register = 2 Bytes
+	$cmd=$cmd.strtoupper(sprintf('%02x', 2));			// Anzahl bytes (1 Register = 2 Bytes)
 	$cmd=$cmd.strtoupper(sprintf('%04x', $data));		// 2 Datenbytes
 		
 	$cmd=$cmd.strtoupper(sprintf('%02x', ModBusAscii_CalcLrc($cmd)));

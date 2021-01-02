@@ -1,6 +1,6 @@
 # ABL eMH
-Die Instanz ABL eMH repräsentiert einen Ladepunkt vom Typ eMH der Firma ABL.
-Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, soweit diese über RS485 Bus ansprechbar sind.
+Die Instanz ABL eMH repräsentiert einen Ladepunkt vom Typ eMH der Firma ABL Sursum.
+Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS485-Bus angeschlossen werden.
 
 
 ### Inhaltsverzeichnis
@@ -18,6 +18,7 @@ Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, soweit diese über RS485
 - Abfragen aller relevanten Parameter des Ladepunktes, wie Zustand, Fehler oder aktuelle Ladeströme
 - Sperren des Anschlusses
 - Setzen des maximalen Ladestroms
+- Setzen der Geräte ID via Broadcast-Befehl
 
 
 ### 2. Vorraussetzungen
@@ -29,7 +30,7 @@ Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, soweit diese über RS485
 ### 3. Software-Installation
 
 * Über den Module Store das 'ABL eMH'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen
+* Alternativ das Repository manuell in das Module Verzeichnis der Symcon Installation kopieren.
 
 
 ### 4. Einrichten der Instanzen in IP-Symcon
@@ -87,7 +88,7 @@ ABL.BoolErrorState | Bool
 
 ### 6. WebFront
 
-Die Variablen "Anschluss gesperrt" und "maximaler Ladestrom" kann über das Webfront eingestellt werden
+Die Variablen "Anschluss gesperrt" und "maximaler Ladestrom" können über das Webfront eingestellt werden
 
 
 ### 7. PHP-Befehlsreferenz
@@ -95,32 +96,32 @@ Die Variablen "Anschluss gesperrt" und "maximaler Ladestrom" kann über das Webf
 `boolean ABLEMH_RequestStatus(integer $InstanzID);`
 Fragt den Zustand des Ladepunktes ab. Wird durch Instanz automatisch regelmäßig aufgerufen.
 
-Beispiel:
-`ABLEMH_RequestStatus(12345);`
+Beispiel: `ABLEMH_RequestStatus(12345);`
+
 
 
 
 `boolean ABLEMH_GetDeviceIdent(integer $InstanzID);`
 Fragt den Gerätetyp und die Seriennummer ab. Wird durch Instanz automatisch einmalig beim Start abgefragt.
 
-Beispiel:
-`ABLEMH_GetDeviceIdent(12345);`
+Beispiel: `ABLEMH_GetDeviceIdent(12345);`
+
 
 
 
 `boolean ABLEMH_SetLockOutlet(integer $InstanzID, bool $value);`
 Sperrt den Ladepunkt, so dass kein Laden möglich ist.
 
-Beispiel:
-`ABLEMH_SetLockOutlet(12345, true);`
+Beispiel: `ABLEMH_SetLockOutlet(12345, true);`
+
 
 
 
 `boolean ABLEMH_SetMaxCurrent(integer $InstanzID, int $value);`
 Setzt den maximalen Ladestrom in Ampere.
 
-Beispiel für 16A:
-`ABLEMH_SetMaxCurrent(12345, 16);`
+Beispiel für 16A: `ABLEMH_SetMaxCurrent(12345, 16);`
+
 
 
 
@@ -128,13 +129,12 @@ Beispiel für 16A:
 Setzt die GeräteID des angeschlossenen Gerätes. Dies erfolgt per Braodcast.
 Es darf sich zu der Zeit daher nur ein Gerät am Bus befinden!
 
-Beispiel, ID2:
-`ABLEMH_SetDeviceID(12345, 2);`
+Beispiel, ID 2 setzen: `ABLEMH_SetDeviceID(12345, 2);`
+
 
 
 
 `boolean ABLEMH_ResetDevice(integer $InstanzID);`
 Startet den Ladepunkt neu.
 
-Beispiel:
-`ABLEMH_ResetDevice(12345);`
+Beispiel: `ABLEMH_ResetDevice(12345);`
