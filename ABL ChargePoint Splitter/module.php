@@ -100,10 +100,9 @@
 								"Buffer" 	=> $TxStr
 								);
 
-				usleep(50 * 1000);	// 50ms warten
+				usleep(5 * 1000);	// 5ms warten
 				$this->SendDataToParent( json_encode($TxArr) );
-				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(50 * 1000);	// 50ms warten
+				usleep(20 * 1000);	// 20ms warten
 				$this->SendDataToParent( json_encode($TxArr) );
 
 				// DebugLog ausgeben
@@ -125,12 +124,11 @@
 								"Buffer" 	=> $TxStr
 								);
 
+				usleep(5 * 1000);	// 5ms warten
 				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(50 * 1000);	// 50ms warten
+				usleep(20 * 1000);	// 20ms warten
 				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(50 * 1000);	// 50ms warten
-				$this->SendDataToParent( json_encode($TxArr) );
-				
+												
 				// DebugLog ausgeben
 				$this->SendDebug('Modbus Tx', $TxStr, 0);
 			}
@@ -147,12 +145,11 @@
 								"Buffer" 	=> $TxStr
 								);
 
+				usleep(5 * 1000);	// 5ms warten
 				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(50 * 1000);	// 50ms warten
+				usleep(20 * 1000);	// 20ms warten
 				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(50 * 1000);	// 50ms warten
-				$this->SendDataToParent( json_encode($TxArr) );
-
+								
 				// DebugLog ausgeben
 				$this->SendDebug('Modbus Tx', $TxStr, 0);
 			}
@@ -169,7 +166,7 @@
 								"Buffer" 	=> $TxStr
 								);
 				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(500 * 1000);	// 500ms warten
+				usleep(500 * 1000);	// 500ms warten bis Vorgang verarbeitet wurde
 
 				$this->SendDebug('Modbus Tx', $TxStr, 0);	// DebugLog ausgeben				
 
@@ -181,7 +178,7 @@
 								);
 
 				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(500 * 1000);	// 500ms warten
+				usleep(500 * 1000);	// 500ms warten bis Vorgang verarbeitet wurde
 
 				$this->SendDebug('Modbus Tx', $TxStr, 0);	// DebugLog ausgeben				
 
@@ -193,7 +190,6 @@
 								);
 
 				$this->SendDataToParent( json_encode($TxArr) );
-				usleep(500 * 1000);	// 50ms warten
 
 				$this->SendDebug('Modbus Tx', $TxStr, 0);	// DebugLog ausgeben				
 			}
