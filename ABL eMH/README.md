@@ -1,5 +1,5 @@
 # ABL eMH
-Die Instanz ABL eMH repräsentiert einen Ladepunkt vom Typ eMH der Firma ABL Sursum.
+Die Instanz ABL eMH repräsentiert eine Wallbox vom Typ eMH der Firma ABL Sursum.
 Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS485-Bus angeschlossen werden.
 
 
@@ -15,7 +15,7 @@ Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS4
 
 ### 1. Funktionsumfang
 
-- Abfragen aller relevanten Parameter des Ladepunktes, wie Zustand, Fehler oder aktuelle Ladeströme
+- Abfragen aller relevanten Parameter der Wallbox, wie Zustand, Fehler oder aktuelle Ladeströme
 - Sperren des Anschlusses
 - Setzen des maximalen Ladestroms
 - Setzen der Geräte ID via Broadcast-Befehl
@@ -43,7 +43,7 @@ __Konfigurationsseite__:
 
 Name         | Beschreibung
 ------------ | ------------------
-Geräte ID    | Angabe der GeräteID des Ladepunktes
+Geräte ID    | Angabe der GeräteID der Wallbox
 
 
 
@@ -67,7 +67,7 @@ Ladestrom L2                | Float   | aktueller Ladestrom L2 in Ampere
 Ladestrom L3                | Float   | aktueller Ladestrom L3 in Ampere
 maximaler Ladestrom         | Int     | aktuell eingestellter max. Ladestrom (änderbar)
 Gerätefehler                | Bool    | true, wenn ein Gerätefehler vorliegt (Fehlercode siehe Zustand)
-Kommunikationsfehler        | Bool    | true, wenn der Ladepunkt in den letzten 10 Sekunden nicht geantwortet hat
+Kommunikationsfehler        | Bool    | true, wenn die Wallbox in den letzten 10 Sekunden nicht geantwortet hat
 Schalteingang EN1           | Bool    | aktueller Status des Schalteingangs EN1 im Gerät
 Schalteingang EN2           | Bool    | aktueller Status des Schalteingangs EN2 im Gerät
 Gerätetyp                   | String  | ausgelesender Gerätetyp
@@ -94,7 +94,7 @@ Die Variablen "Anschluss gesperrt" und "maximaler Ladestrom" können über das W
 ### 7. PHP-Befehlsreferenz
 
 #### `boolean ABLEMH_RequestStatus(integer $InstanzID);`
-Fragt den Zustand des Ladepunktes ab. Wird durch Instanz automatisch regelmäßig aufgerufen.
+Fragt den Zustand der Wallbox ab. Wird durch Instanz automatisch regelmäßig aufgerufen.
 
 Beispiel: `ABLEMH_RequestStatus(12345);`
 <br><br>
@@ -108,7 +108,7 @@ Beispiel: `ABLEMH_GetDeviceIdent(12345);`
 
 
 #### `boolean ABLEMH_SetLockOutlet(integer $InstanzID, bool $value);`
-Sperrt den Ladepunkt, so dass kein Laden möglich ist.
+Sperrt die Wallbox, so dass kein Laden möglich ist.
 
 Beispiel: `ABLEMH_SetLockOutlet(12345, true);`
 <br><br>
@@ -130,7 +130,7 @@ Beispiel, ID 2 setzen: `ABLEMH_SetDeviceID(12345, 2);`
 
 
 #### `boolean ABLEMH_ResetDevice(integer $InstanzID);`
-Startet den Ladepunkt neu.
+Startet die Wallbox neu.
 
 Beispiel: `ABLEMH_ResetDevice(12345);`
 <br><br>

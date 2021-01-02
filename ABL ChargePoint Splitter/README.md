@@ -1,5 +1,5 @@
 # ABL ChargePoint Splitter
-Der ABL Chargepoint Splitter dient zur Kommunikation mit dem RS485 Bus, woran ein oder mehrere Ladepunkte
+Der ABL Chargepoint Splitter dient zur Kommunikation mit dem RS485 Bus, woran ein oder mehrere Wallboxen
 vom Typ eMH der Firma ABL Sursum angeschlossen sind. Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt,
 wenn diese über den RS485-Bus angeschlossen werden. Der Splitter unterstützt sowohl den Zugriff über einen COM-Port,
 also auch über TCP/IP mittels Converter auf den RS485 Bus.
@@ -19,11 +19,11 @@ Dies ist die Splitterinstanz, die die Kommunikation mit dem Bus koordiniert.
 ### 2. Vorraussetzungen
 
 - IP-Symcon ab Version 5.2
-- Alle ABL Ladepunkte müssen via RS485 an einem Bus angeschlossen sein
-- Jeder Ladepunkt benötigt eine eindeutige Geräte ID (Zu setzen über eMH Instanz oder via ABL Tool)
-- Der RS485 Bus kann entweder über eine Client Socket oder COM Port Instanz angesprochen werden
-- Bei Nutzung des Client Sockets muss der RS485 Bus über einen "RS485 to Ethernet Adapter" (z.B. USR-TCP232-304) angebunden werden
-- Der RS485 Bus benötigt folgende Einstellungen: 38400 Baud, 8Bit, Parity Even, 1 Stop Bit
+- Alle Wallboxen müssen via RS485 an einem Bus angeschlossen sein
+- Jeder Ladepunkt benötigt eine eindeutige GeräteID (zu setzen über eMH Instanz oder via ABL Tool)
+- Der RS485-Bus kann entweder über eine Client Socket oder COM Port Instanz angesprochen werden
+- Bei Nutzung des Client Sockets muss der RS485 Bus über einen "RS485 to Ethernet Adapter" (getestet mit USR-TCP232-304) angebunden werden
+- Der RS485-Bus benötigt folgende Einstellungen: 38400 Baud, 8Bit, Parity Even, 1 Stop Bit
 
 
 ### 3. Software-Installation
