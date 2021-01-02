@@ -1,12 +1,12 @@
 {
-    "id":                   "{9391CDDD-EF82-1D6B-1B54-08F3A61D9834}",
-    "name":                 "ABL ChargePoint Splitter",
-    "type":                 2,
-    "vendor":               "ABL",
-    "aliases":              [],
-    "parentRequirements":   [ "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}" ],
-    "childRequirements":    [ "{1B55984F-DD7A-1233-D33F-0D1D2198228D}" ],
-    "implemented":          [ "{5D9BE907-4A52-C23B-3A5F-52802555C983}", "{D350C47B-9A22-0D2F-6270-B0E929BF6CEE}", "{018EF6B5-AB94-40C6-AA53-46943E824ACF}" ],
-    "prefix":               "ABLCPS",
-    "url":                  "https://github.com/cvvmedia/symcon.cvvmedia.ablchargepoint/tree/main/ABL%20ChargePoint%20Splitter"
+    "id":                       "{9391CDDD-EF82-1D6B-1B54-08F3A61D9834}",
+    "name":                     "ABL ChargePoint Splitter",
+    "type":                     2,
+    "vendor":                   "ABL",
+    "aliases":                  [],
+    "parentRequirements":       [ "{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}" ],
+    "childRequirements":        [ "{1B55984F-DD7A-1233-D33F-0D1D2198228D}" ],
+    "implemented":              [ "{5D9BE907-4A52-C23B-3A5F-52802555C983}", "{D350C47B-9A22-0D2F-6270-B0E929BF6CEE}", "{018EF6B5-AB94-40C6-AA53-46943E824ACF}" ],
+    "prefix":                   "ABLCPS",
+    "url":                      "https://github.com/cvvmedia/symcon.cvvmedia.ablchargepoint/tree/main/ABL%20ChargePoint%20Splitter"
 }

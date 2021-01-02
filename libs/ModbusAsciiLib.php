@@ -17,6 +17,7 @@ function ModBusAscii_CalcLrc($hexstr) {
 }
 
 
+
 // Erzeugt ein Befehl zum Abfragen von Modbus Registern
 function ModBusAscii_CreateRequestCmd($destaddr, $start, $count)
 {
@@ -32,7 +33,9 @@ function ModBusAscii_CreateRequestCmd($destaddr, $start, $count)
 	return $cmd;
 }
 
-// Erzeugt ein Befehl zum Setzen eines Registers
+
+
+// Erzeugt ein Befehl zum setzen eines Registers
 function ModBusAscii_CreateRegisterWriteCmd($destaddr, $start, $data)
 {
 	$cmd=(string)'';
@@ -50,6 +53,7 @@ function ModBusAscii_CreateRegisterWriteCmd($destaddr, $start, $data)
 }
 
 
+// Dekodiert eine empfangenes Modbus-Paket
 function ModBusAscii_DecodeRegisterRequestAnswerCmd($RxStr)
 {
 	$Arr = array();

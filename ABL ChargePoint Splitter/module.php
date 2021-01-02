@@ -2,6 +2,7 @@
 	// externe Libraries aus dem Libs-Verzeichnis einbinden
 	require_once __DIR__ . '/../libs/ModbusAsciiLib.php';
 
+	
 
 	// Klasse der Instanz. Der name muss gleich sein, wie unter "name" in der module.json angegeben, nur ohne Leerzeichen
 	class ABLChargePointSplitter extends IPSModule {
