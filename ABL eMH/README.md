@@ -97,24 +97,21 @@ Die Variablen "Anschluss gesperrt" und "maximaler Ladestrom" können über das W
 Fragt den Zustand des Ladepunktes ab. Wird durch Instanz automatisch regelmäßig aufgerufen.
 
 Beispiel: `ABLEMH_RequestStatus(12345);`
-
-
+<br><br>
 
 
 #### 7.2 `boolean ABLEMH_GetDeviceIdent(integer $InstanzID);`
 Fragt den Gerätetyp und die Seriennummer ab. Wird durch Instanz automatisch einmalig beim Start abgefragt.
 
 Beispiel: `ABLEMH_GetDeviceIdent(12345);`
-
-
+<br><br>
 
 
 #### 7.3 `boolean ABLEMH_SetLockOutlet(integer $InstanzID, bool $value);`
 Sperrt den Ladepunkt, so dass kein Laden möglich ist.
 
 Beispiel: `ABLEMH_SetLockOutlet(12345, true);`
-
-
+<br><br>
 
 
 #### 7.4 `boolean ABLEMH_SetMaxCurrent(integer $InstanzID, int $value);`
@@ -124,17 +121,16 @@ Beispiel für 16A: `ABLEMH_SetMaxCurrent(12345, 16);`
 <br><br>
 
 
-
 #### 7.5 `boolean ABLEMH_SetDeviceID(integer $InstanzID, int $value);`
 Setzt die GeräteID des angeschlossenen Gerätes. Dies erfolgt per Braodcast.
 Es darf sich zu der Zeit daher nur ein Gerät am Bus befinden!
 
 Beispiel, ID 2 setzen: `ABLEMH_SetDeviceID(12345, 2);`
-
-
+<br><br>
 
 
 #### 7.6 `boolean ABLEMH_ResetDevice(integer $InstanzID);`
 Startet den Ladepunkt neu.
 
 Beispiel: `ABLEMH_ResetDevice(12345);`
+<br><br>
