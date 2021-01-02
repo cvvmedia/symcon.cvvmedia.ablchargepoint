@@ -10,7 +10,7 @@
             "Set Max Current 16A":                  "Setze Max. Ladestrom auf 16A",
             "Reset Device":                         "Gerät neu starten",
             "Do you really want to restart the device?":    "Wollen Sie wirklich das Gerät neu starten?",
-            "Set DeviceID":                         "GeräteID setzen",
+            "Set Device ID":                         "Geräte ID setzen",
             "Do you really want to set the device ID? Be sure that only one device is connected to the bus!":    "Wollen Sie wirklich die GeräteID setzen? Bitte achten Sie darauf, dass nur ein Gerät am Bus angeschlossen ist!",
 
             "EV connected":                         "Fahrzeug angeschlossen",

@@ -48,7 +48,7 @@
         {   "type": "RowLayout",
             "items": [
                 { "type": "Button", "label": "Reset Device", "confirm": "Do you really want to restart the device?", "onClick": "ABLEMH_ResetDevice($id);" },
-                { "type": "Button", "label": "Set DeviceID", "confirm": "Do you really want to set the device ID? Be sure that only one device is connected to the bus!", "onClick": "ABLEMH_SetDeviceID($id, $deviceid);" }
+                { "type": "Button", "label": "Set Device ID", "confirm": "Do you really want to set the device ID? Be sure that only one device is connected to the bus!", "onClick": "ABLEMH_SetDeviceID($id, $deviceid);" }
             ]
         }
     ],
