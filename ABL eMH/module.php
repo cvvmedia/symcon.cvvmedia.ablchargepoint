@@ -262,7 +262,7 @@
 			// Zu sendende Daten erzeugen
 			$TxArr = Array(	"DataID" 	=> "{5D9BE907-4A52-C23B-3A5F-52802555C983}",
 							"DeviceID" 	=> $this->ReadPropertyInteger('deviceid'),
-							"Cmd" 		=> utf8_encode("GetDeviceIdent")
+							"Cmd" 		=> "GetDeviceIdent"
 							);
 
 			// Daten ans übergeordnete Parent-Modul (hier Splitter) senden
@@ -280,7 +280,7 @@
 			// Zu sendende Daten erzeugen
 			$TxArr = Array( "DataID" 	=> "{5D9BE907-4A52-C23B-3A5F-52802555C983}",
 							"DeviceID" 	=> $this->ReadPropertyInteger('deviceid'),
-							"Cmd" 		=> utf8_encode("SetLockOutlet"),
+							"Cmd" 		=> "SetLockOutlet",
 							"Value"		=> $value ? 'true':'false'
 							);
 			
@@ -303,7 +303,7 @@
 			// Zu sendende Daten erzeugen
 			$TxArr = Array(	"DataID" 	=> "{5D9BE907-4A52-C23B-3A5F-52802555C983}",
 							"DeviceID" 	=> $this->ReadPropertyInteger('deviceid'),
-							"Cmd" 		=> utf8_encode("SetMaxCurrent"),
+							"Cmd" 		=> "SetMaxCurrent",
 							"Value"		=> $value
 							);
 			
@@ -326,7 +326,7 @@
 			// Zu sendende Daten erzeugen
 			$TxArr = Array(	"DataID" 	=> "{5D9BE907-4A52-C23B-3A5F-52802555C983}",
 							"DeviceID" 	=> $this->ReadPropertyInteger('deviceid'),
-							"Cmd" 		=> utf8_encode("SetDeviceID"),
+							"Cmd" 		=> "SetDeviceID",
 							"Value"		=> $value
 							);
 			
@@ -345,7 +345,7 @@
 			// Zu sendende Daten erzeugen
 			$TxArr = Array(	"DataID" 	=> "{5D9BE907-4A52-C23B-3A5F-52802555C983}",
 							"DeviceID" 	=> $this->ReadPropertyInteger('deviceid'),
-							"Cmd" 		=> utf8_encode("ResetDevice")
+							"Cmd" 		=> "ResetDevice"
 							);
 			
 			// Daten an die übergeordnete Parent-Instanz (hier Splitter) senden

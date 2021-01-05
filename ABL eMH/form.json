@@ -5,28 +5,8 @@
         },
         {   "type": "Label", "caption": "www.cvvmedia.de" },
         {   "type": "Label", "caption": " " },
-        {   "type": "Label", "caption": " " },
 
-        {   "type": "Select", "name": "deviceid", "caption": "Device ID", "width": "100px",
-            "options": [
-                { "caption": "ID 1", "value": 1 },
-                { "caption": "ID 2", "value": 2 },
-                { "caption": "ID 3", "value": 3 },
-                { "caption": "ID 4", "value": 4 },
-                { "caption": "ID 5", "value": 5 },
-                { "caption": "ID 6", "value": 6 },
-                { "caption": "ID 7", "value": 7 },
-                { "caption": "ID 8", "value": 8 },
-                { "caption": "ID 9", "value": 9 },
-                { "caption": "ID 10", "value": 10 },
-                { "caption": "ID 11", "value": 11 },
-                { "caption": "ID 12", "value": 12 },
-                { "caption": "ID 13", "value": 13 },
-                { "caption": "ID 14", "value": 14 },
-                { "caption": "ID 15", "value": 15 },
-                { "caption": "ID 16", "value": 16 }
-            ]
-        }
+        {   "type": "NumberSpinner", "name": "deviceid", "caption": "Device ID", "minimum": "1", "maximum": "16" }
     ],
 
     "actions": [
