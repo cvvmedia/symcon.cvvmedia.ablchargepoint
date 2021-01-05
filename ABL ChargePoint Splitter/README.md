@@ -40,4 +40,4 @@ Dies ist die Splitterinstanz, die die Kommunikation mit dem Bus koordiniert.
 
 __Konfigurationsseite__:
 
-Die Splitterinstanz hat keine Einstellungen.
+Die Splitterinstanz besitzt keine Einstellungen.
