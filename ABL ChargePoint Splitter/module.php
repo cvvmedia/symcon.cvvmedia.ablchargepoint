@@ -258,10 +258,10 @@
 				if (($AnswerArr['register2']==1000) | ($AnswerArr['register2']<2)) {
 					$AnswerArr['register2'] = 0.0;
 				}
-				if (($AnswerArr['register2']==1000) | ($AnswerArr['register2']<2)) {
+				if (($AnswerArr['register3']==1000) | ($AnswerArr['register3']<2)) {
 					$AnswerArr['register3'] = 0.0;
 				}
-				if (($AnswerArr['register4']==1000) | ($AnswerArr['register2']<2)) {
+				if (($AnswerArr['register4']==1000) | ($AnswerArr['register4']<2)) {
 					$AnswerArr['register4'] = 0.0;
 				}
 				
