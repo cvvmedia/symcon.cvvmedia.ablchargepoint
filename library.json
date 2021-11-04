@@ -3,7 +3,7 @@
     "name":                 "ABL ChargePoint Library",
     "author":               "CVVmedia, Dipl.-Ing. (FH) Michael Scholze",
     "url":                  "https://www.cvvmedia.de",
-    "compatibility":        { "version": "5.2" },
+    "compatibility":        { "version": "5.6" },
     "version":              "1.2",
     "build":                1612634606,
     "date":                 1612634606
