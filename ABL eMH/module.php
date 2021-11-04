@@ -86,7 +86,7 @@
 			$this->RegisterVariableBoolean('CHARGERELEASE', $this->Translate('EV has charge release'), 'ABLEMH.BoolState', 1);
 			$this->RegisterVariableBoolean('CHARGING', $this->Translate('EV charging'), 'ABLEMH.BoolState', 2);
 			$this->RegisterVariableBoolean('OUTLETLOCKED', $this->Translate('Outlet Locked'), '~Lock', 3);
-			$this->RegisterVariableString('OUTLETSTATE', $this->Translate('Outlet State'), '', 4);
+			$this->RegisterVariableString('OUTLETSTATE', $this->Translate('Outlet State'), 'ABLEMH.OutletState', 4);
 			$this->RegisterVariableFloat('CURRENTL1', $this->Translate('Current L1'), '~Ampere', 5);
 			$this->RegisterVariableFloat('CURRENTL2', $this->Translate('Current L2'), '~Ampere', 6);
 			$this->RegisterVariableFloat('CURRENTL3', $this->Translate('Current L3'), '~Ampere', 7);
