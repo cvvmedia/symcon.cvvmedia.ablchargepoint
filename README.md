@@ -9,6 +9,7 @@ Folgende Module beinhaltet das ABL ChargePoint Library Repository:
 	also auch über TCP/IP mittels Converter auf den RS485 Bus. Bei der eMH2/3 darf kein Backend verwendet werden.
 
 - __ABL eMH__ ([Dokumentation](ABL%20eMH))  
-	Die Instanz ABL eMH repräsentiert eine Wallbox vom Typ eMH der Firma ABL Sursum.
-	Es werden die Gerätetypen eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS485-Bus angeschlossen werden.
+	Die Instanz ABL eMH repräsentiert eine einzelne ABL-Wallbox.
+	Die Kommunikation erfolgt über den ABL ChargePoint Splitter, welche die Verbindung zum Bus herstellt.
+	
 	
