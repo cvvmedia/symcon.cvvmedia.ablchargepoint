@@ -59,7 +59,7 @@ function ModBusAscii_DecodeRegisterRequestAnswerCmd($RxStr)
 	$Arr = array();
     
     // Ist das ">" Zeichen (=Modbus Antwort) am Anfang vorhanden? => entfernen
-    if ( (strlen($RxStr)>0) & ($RxStr[0]=='>') ) {
+    if ( (strlen($RxStr)>0) && ($RxStr[0]=='>') ) {
         $RxStr=substr($RxStr,1);
     }
 

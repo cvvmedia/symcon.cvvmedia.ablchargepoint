@@ -120,7 +120,7 @@
 			//IPS_LogMessage("xx", print_r($RxArr, true));
 
 			// Sind es Statusdaten und unsere DeviceID?
-			if ( ($RxArr->Cmd=='ReceivedState') & ($RxArr->DeviceID==$this->ReadPropertyInteger('deviceid')) )
+			if ( ($RxArr->Cmd=='ReceivedState') && ($RxArr->DeviceID==$this->ReadPropertyInteger('deviceid')) )
 			{
 				// Zusandsvariablen setzen je nach Outlet State
 				//$outletstate = (string) strtoupper(sprintf('%02x', $RxArr->OutletState));
@@ -181,7 +181,7 @@
 
 
 			// Sind es Daten über das Gerät und für unsere DeviceID?
-			if ( ($RxArr->Cmd=='ReceivedDeviceIdent') & ($RxArr->DeviceID==$this->ReadPropertyInteger('deviceid')) )
+			if ( ($RxArr->Cmd=='ReceivedDeviceIdent') && ($RxArr->DeviceID==$this->ReadPropertyInteger('deviceid')) )
 			{
 				if ($this->GetValue("DEVICETYPE") !== $RxArr->DeviceType) { $this->SetValue("DEVICETYPE", $RxArr->DeviceType); }	
 				if ($this->GetValue("DEVICESERIAL") !== $RxArr->DeviceSerial) { $this->SetValue("DEVICESERIAL", $RxArr->DeviceSerial); }
