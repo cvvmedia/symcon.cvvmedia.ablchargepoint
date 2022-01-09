@@ -18,7 +18,11 @@ Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS4
 - Abfragen aller relevanten Parameter der Wallbox, wie Zustand, Fehler oder aktuelle Ladeströme
 - Sperren des Anschlusses
 - Setzen des maximalen Ladestroms
-- Setzen der Geräte ID via Broadcast-Befehl
+- Setzen der Geräte ID via Broadcast-Befehl (dabei darf nur eine einzelne Wallbox am Bus hängen!)
+
+# Hinweis:
+Die eMH1 kann ab Baujahr Q2-2021 in der 11kW-Version keine Ströme mehr messen, da die benötigten
+Strommesswsnler nicht mehr verbaut wurden. Die 22kW-Version ist davon nicht betroffen.
 
 
 ### 2. Vorraussetzungen
