@@ -20,8 +20,9 @@ Dies ist die Splitterinstanz, die die Kommunikation mit dem Bus koordiniert.
 
 - IP-Symcon ab Version 5.2
 - Alle Wallboxen müssen via RS485 an einem Bus angeschlossen sein
-- Jeder Ladepunkt benötigt eine eindeutige GeräteID (zu setzen über eMH Instanz oder via ABL Tool)
-- Der RS485-Bus kann entweder über eine Client Socket oder COM Port Instanz angesprochen werden
+- Jeder Ladepunkt benötigt eine eindeutige GeräteID (zu setzen über eMH Instanz oder via ABL CONFCAB-Software)
+- Die leistungsfähigeren Wallboxen eMH2/3 müssen für den "Standalone-Modus ohne Backend" konfiguriert sein (ABL CONFCAB-Software)
+- Der RS485-Bus kann entweder über ein Client Socket (TCP) oder einer COM Port Instanz angesprochen werden
 - Bei Nutzung des Client Sockets muss der RS485 Bus über einen "RS485 to Ethernet Adapter" (getestet mit USR-TCP232-304) angebunden werden
 - Der RS485-Bus benötigt folgende Einstellungen: 38400 Baud, 8Bit, Parity Even, 1 Stop Bit
 
