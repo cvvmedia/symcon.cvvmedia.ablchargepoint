@@ -49,6 +49,34 @@
 			IPS_SetVariableProfileAssociation('ABLEMH.ErrorState', 0, $this->Translate('OK'), '', -1);
 			IPS_SetVariableProfileAssociation('ABLEMH.ErrorState', 1, $this->Translate('Error'), '', 0xFF0000);
 
+			// Erstelle Variablenprofil für Lade-Zustände
+			if (IPS_VariableProfileExists('ABLEMH.OutletState') === true) {
+				IPS_DeleteVariableProfile('ABLEMH.OutletState');
+			}
+			IPS_CreateVariableProfile('ABLEMH.OutletState', 3);
+			IPS_SetVariableProfileIcon('ABLEMH.OutletState', 'Information');
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'A1', $this->Translate('Waiting for EV'), 'Hourglass', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'B1', $this->Translate('EV is asking for charging'), 'Information', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'B2', $this->Translate('EV has the permission to charge'), 'Ok', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'C2', $this->Translate('EV is charged'), 'Plug', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'C3', $this->Translate('C2, reduced current (error F16, F17)'), 'Information', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'C4', $this->Translate('C2, reduced current (imbalance F15)'), 'Information', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'E0', $this->Translate('Outlet disabled'), 'Information', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'E1', $this->Translate('Production test'), 'Information', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'E2', $this->Translate('EVCC setup mode'), 'Information', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'E3', $this->Translate('Bus idle'), 'Information', -1);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F1', $this->Translate('Unintended closed contact (Welding)'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F2', $this->Translate('Internal error'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F3', $this->Translate('DC residual current detected'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F4', $this->Translate('Upstream communication timeout'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F5', $this->Translate('Lock of socket failed'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F6', $this->Translate('CS out of range'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F7', $this->Translate('State D requested by EV'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F8', $this->Translate('CP out of range'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F9', $this->Translate('Overcurrent detected'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'FA', $this->Translate('Temperature outside limits'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'FB', $this->Translate('Unintended opened contact'), 'Warning', 0xFFFF00);
+
 
 			// Variablen der Instanz-Konfigurationsseite erstellen
 			$this->RegisterPropertyInteger('deviceid', 1);
@@ -58,7 +86,7 @@
 			$this->RegisterVariableBoolean('CHARGERELEASE', $this->Translate('EV has charge release'), 'ABLEMH.BoolState', 1);
 			$this->RegisterVariableBoolean('CHARGING', $this->Translate('EV charging'), 'ABLEMH.BoolState', 2);
 			$this->RegisterVariableBoolean('OUTLETLOCKED', $this->Translate('Outlet Locked'), '~Lock', 3);
-			$this->RegisterVariableString('OUTLETSTATE', $this->Translate('Outlet State'), '', 4);
+			$this->RegisterVariableString('OUTLETSTATE', $this->Translate('Outlet State'), 'ABLEMH.OutletState', 4);
 			$this->RegisterVariableFloat('CURRENTL1', $this->Translate('Current L1'), '~Ampere', 5);
 			$this->RegisterVariableFloat('CURRENTL2', $this->Translate('Current L2'), '~Ampere', 6);
 			$this->RegisterVariableFloat('CURRENTL3', $this->Translate('Current L3'), '~Ampere', 7);
