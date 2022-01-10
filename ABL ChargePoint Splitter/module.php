@@ -51,7 +51,7 @@
 
 
 			// Soll die SerienNr/Type vom Ladepunkt abgefragt werden ?
-			if ($this->HasActiveParent() & ($RxArr->Cmd=='GetDeviceIdent'))
+			if ($this->HasActiveParent() && ($RxArr->Cmd=='GetDeviceIdent'))
 			{
 				// Modbus Befehl erzeugen
 				$TxStr = ModBusAscii_CreateRequestCmd($RxArr->DeviceID, 0x50, 8);		
@@ -70,7 +70,7 @@
 			
 
 			// Soll der Status vom Ladepunkt abgefragt werden ?
-			if ($this->HasActiveParent() & ($RxArr->Cmd=='GetState'))
+			if ($this->HasActiveParent() && ($RxArr->Cmd=='GetState'))
 			{
 				// Modbus Befehl erzeugen
 				$TxStr = ModBusAscii_CreateRequestCmd($RxArr->DeviceID, 0x2E, 5);		
@@ -89,7 +89,7 @@
 			
 
 			// Soll der Ladepunkt gesperrt werden?
-			if ($this->HasActiveParent() & ($RxArr->Cmd=='SetLockOutlet'))
+			if ($this->HasActiveParent() && ($RxArr->Cmd=='SetLockOutlet'))
 			{
 				// Modbus Befehl erzeugen
 				if ($RxArr->Value == 'true')
@@ -112,7 +112,7 @@
 
 
 			// Soll die Ladeleistung gesetzt werden
-			if ($this->HasActiveParent() & ($RxArr->Cmd=='SetMaxCurrent'))
+			if ($this->HasActiveParent() && ($RxArr->Cmd=='SetMaxCurrent'))
 			{
 				// Strom umrechnen in PWM
 				$DutyCycle = round($RxArr->Value) * (26.7 / 16);	// weil 26,7% = 16A laut IEC 62196 Typ 2
@@ -136,7 +136,7 @@
 
 
 			// Soll der Ladepunkt resettet (neustart) werden?
-			if ($this->HasActiveParent() & ($RxArr->Cmd=='ResetDevice'))
+			if ($this->HasActiveParent() && ($RxArr->Cmd=='ResetDevice'))
 			{
 				// Modbus Befehl erzeugen
 				$TxStr = ModBusAscii_CreateRegisterWriteCmd($RxArr->DeviceID, 0x05, 0x5A5A);	
@@ -157,7 +157,7 @@
 			
 
 			// Soll die DeviceID gesetzt werden?
-			if ($this->HasActiveParent() & ($RxArr->Cmd=='SetDeviceID'))
+			if ($this->HasActiveParent() && ($RxArr->Cmd=='SetDeviceID'))
 			{
 				// DeviceID kann nur gesetzt werden, wenn die Box im E2-Zustand ist. Muss vorher gesetzt werden.	
 
@@ -218,7 +218,7 @@
 			$RxRingbuffer = substr($RxRingbuffer, strpos($RxRingbuffer, '>'));
 
 			// Prüfen, ob ein vollständiges Modbus-Paket im RingBuffer vorhanden ist
-			while ((strpos($RxRingbuffer, '>')!==false) & (strpos($RxRingbuffer, chr(13).chr(10))!==false))
+			while ((strpos($RxRingbuffer, '>')!==false) && (strpos($RxRingbuffer, chr(13).chr(10))!==false))
 			{
 				// Es ist ein vollständiges Paket vorhanden
 
@@ -252,7 +252,7 @@
 			$AnswerArr = ModBusAscii_DecodeRegisterRequestAnswerCmd($RxData);
 
 			// Sind es Statusdaten?
-			if ( (!empty($AnswerArr)) & ($AnswerArr['registercount']>0) & (($AnswerArr['register0']>>8)==0x2E) )
+			if ( (!empty($AnswerArr)) && ($AnswerArr['registercount']>0) && (($AnswerArr['register0']>>8)==0x2E) )
 			{
 				// Korrektur der Ströme, wenn nicht vorhaden oder kleiner als 0.2kW
 				if (($AnswerArr['register2']==1000) | ($AnswerArr['register2']<2)) {
@@ -284,7 +284,7 @@
 
 
 			// Ist es die SerienNr / Gerätetyp?
-			if ( (!empty($AnswerArr)) & ($AnswerArr['registercount']>0) & (($AnswerArr['register0']>>8)==0x50) )
+			if ( (!empty($AnswerArr)) && ($AnswerArr['registercount']>0) && (($AnswerArr['register0']>>8)==0x50) )
 			{
 				$devicetype = chr(($AnswerArr['register1']>>8) & 0xFF).chr($AnswerArr['register1'] & 0xFF);
 				$devicetype = $devicetype.chr(($AnswerArr['register2']>>8) & 0xFF).chr($AnswerArr['register2'] & 0xFF);

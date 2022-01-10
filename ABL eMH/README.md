@@ -6,7 +6,7 @@ Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS4
 ### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-voraussetzungen)
+2. [Voraussetzungen](#2-vorraussetzungen)
 3. [Software-Installation](#3-software-installation)
 4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
 5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
@@ -18,7 +18,11 @@ Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS4
 - Abfragen aller relevanten Parameter der Wallbox, wie Zustand, Fehler oder aktuelle Ladeströme
 - Sperren des Anschlusses
 - Setzen des maximalen Ladestroms
-- Setzen der Geräte ID via Broadcast-Befehl
+- Setzen der Geräte ID via Broadcast-Befehl (dabei darf nur eine einzelne Wallbox am Bus hängen!)
+
+__Hinweis:__
+Die eMH1 kann ab Baujahr Q2-2021 in der 11kW-Version keine Ströme mehr messen,
+da die notwendigen Strommesswandler nicht mehr verbaut werden. Die 22kW-Version ist davon nicht betroffen.
 
 
 ### 2. Vorraussetzungen
