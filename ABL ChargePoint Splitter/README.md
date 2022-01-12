@@ -1,13 +1,12 @@
 # ABL ChargePoint Splitter
 Der ABL Chargepoint Splitter dient zur Kommunikation mit dem RS485 Bus, woran ein oder mehrere Wallboxen
-vom Typ eMH der Firma ABL Sursum angeschlossen sind. Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt,
-wenn diese über den RS485-Bus angeschlossen werden. Der Splitter unterstützt sowohl den Zugriff über einen COM-Port,
-also auch über TCP/IP mittels Converter auf den RS485 Bus.
+angeschlossen sind. Der Splitter unterstützt sowohl den Zugriff über einen COM-Port, also auch über die Client Socket-Instanz via TCP/IP.
+Bei letzteren ist ein Converter von LAN auf RS485 Bus notwendig.
 
 ### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-voraussetzungen)
+2. [Voraussetzungen](#2-vorraussetzungen)
 3. [Software-Installation](#3-software-installation)
 4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
 
@@ -18,12 +17,13 @@ Dies ist die Splitterinstanz, die die Kommunikation mit dem Bus koordiniert.
 
 ### 2. Vorraussetzungen
 
-- IP-Symcon ab Version 5.2
+- IP-Symcon ab Version 5.6
 - Alle Wallboxen müssen via RS485 an einem Bus angeschlossen sein
-- Jeder Ladepunkt benötigt eine eindeutige GeräteID (zu setzen über eMH Instanz oder via ABL CONFCAB-Software)
+- Bei Kabellängen größer 5m muss der Bus am Anfang und am Ende korrekt terminiert sein [(siehe Wikipedia RS485)](https://de.wikipedia.org/wiki/EIA-485)
+- Jede Wallbox benötigt eine eindeutige GeräteID (zu setzen über eMH Instanz oder via ABL CONFCAB-Software)
 - Die leistungsfähigeren Wallboxen eMH2/3 müssen für den "Standalone-Modus ohne Backend" konfiguriert sein (ABL CONFCAB-Software)
-- Der RS485-Bus kann entweder über ein Client Socket (TCP) oder einer COM Port Instanz angesprochen werden
-- Bei Nutzung des Client Sockets muss der RS485 Bus über einen "RS485 to Ethernet Adapter" (getestet mit USR-TCP232-304) angebunden werden
+- Der RS485-Bus kann entweder über eine Client Socket (TCP) oder einer COM Port Instanz angesprochen werden
+- Bei Nutzung des Client Sockets muss der RS485 Bus über einen "RS485 to Ethernet Adapter" (getestet mit "USR-TCP232-304" von USR IoT) angebunden werden
 - Der RS485-Bus benötigt folgende Einstellungen: 38400 Baud, 8Bit, Parity Even, 1 Stop Bit
 
 
