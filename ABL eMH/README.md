@@ -1,6 +1,5 @@
 # ABL eMH
-Die Instanz ABL eMH repräsentiert eine Wallbox vom Typ eMH der Firma ABL Sursum.
-Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS485-Bus angeschlossen werden.
+Die Instanz ABL eMH repräsentiert eine einzelne Wallbox vom Typ eMH.
 
 
 ### Inhaltsverzeichnis
@@ -16,7 +15,7 @@ Es werden die Geräte eMH1, eMH2 und eMH3 unterstützt, wenn diese über den RS4
 ### 1. Funktionsumfang
 
 - Abfragen aller relevanten Parameter der Wallbox, wie Zustand, Fehler oder aktuelle Ladeströme
-- Sperren des Anschlusses
+- Sperren/Entsperren des Anschlusses
 - Setzen des maximalen Ladestroms
 - Setzen der Geräte ID via Broadcast-Befehl (dabei darf nur eine einzelne Wallbox am Bus hängen!)
 
@@ -27,8 +26,8 @@ da die notwendigen Strommesswandler nicht mehr verbaut werden. Die 22kW-Version 
 
 ### 2. Vorraussetzungen
 
-- IP-Symcon ab Version 5.2
-- Installierte ABL Chargepoint Splitter Instanz
+- IP-Symcon ab Version 5.6
+- Installierte ABL Chargepoint Splitter Instanz zur Busanbindung
 
 
 ### 3. Software-Installation
@@ -63,7 +62,7 @@ Name                        | Typ     | Beschreibung
 --------------------------- | ------- | ------------
 Fahrzeug angeschlossen      | Bool    | true, wenn ein fahrzeug angeschlossen ist
 Fahrzeug hat Ladefreigabe   | Bool    | true, wenn der Ladepunkt eine Ladung freigibt
-Fahrzeug lädt               | Bool    | true, wenn das Fahrzeug wirlich lädt      
+Fahrzeug lädt               | Bool    | true, wenn das Fahrzeug wirklich lädt      
 Anschluss gesperrt          | Bool    | true, wenn der Anschluss gesperrt ist
 Zustand                     | String  | aktueller Gerätezustand (A1, B1, B2, C2...)
 Ladestrom L1                | Float   | aktueller Ladestrom L1 in Ampere
@@ -83,10 +82,11 @@ Seriennummer                | String  | ausgelesene Seriennummer
 
 Name               | Typ
 ------------------ | -------
-ABL.MaxCurrent.16  | Integer
-ABL.MaxCurrent.32  | Integer
-ABL.BoolState      | Bool
-ABL.BoolErrorState | Bool
+ABLEMH.MaxCurrent.16  | Integer
+ABLEMH.MaxCurrent.32  | Integer
+ABLEMH.BoolState      | Bool
+ABLEMH.BoolErrorState | Bool
+ABLEMH.OutletState	| String
 
 
 
