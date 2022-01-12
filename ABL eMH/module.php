@@ -103,12 +103,13 @@
 			$this->EnableAction("OUTLETLOCKED");	
 			$this->EnableAction("MAXCURRENT");	
 
-			// Fehlerflags initalisieren
+			// Interne Variablen initalisieren
 			$this->SetBuffer('ERROR_LastReceivedData', time());
 			$this->SetBuffer('ERROR_DeviceState', 'A1');
 
 			// Timer anlegen
-			$this->RegisterTimer("RequestStatusTimer", 2000, 'ABLEMH_RequestStatus('.$this->InstanceID.');' );			// Regelmäßig Gerätestatus Abfragen
+			$this->RegisterTimer("RequestStatusTimer", 2000 + ($this->ReadPropertyInteger('deviceid') * 100), 'ABLEMH_RequestStatus('.$this->InstanceID.');' );	// Regelmäßig Gerätestatus Abfragen
+			$this->RegisterTimer("GetDeviceIdentTimer", 3000, 'ABLEMH_GetDeviceIdent('.$this->InstanceID.');' ); // Aktualisiert einmalig den DeviceIdent. Danach wird der Timer schlafen gelegt
 		}
 
 
@@ -129,7 +130,7 @@
 			parent::ApplyChanges();			// wichtig!
 
 			// Variiert das Updateintervall ein wenig um eine Kollision von Abfragen zu vermeiden
-			$this->SetTimerInterval("RequestStatusTimer", 2000 + (($this->ReadPropertyInteger('deviceid')-1) * 5) );
+			$this->SetTimerInterval("RequestStatusTimer", 2000 + ($this->ReadPropertyInteger('deviceid') * 100) );
 
 			// Gerätetyp / SerienNr abfragen
 			$this->GetDeviceIdent();
@@ -214,7 +215,7 @@
 				if ($this->GetValue("DEVICETYPE") !== $RxArr->DeviceType) { $this->SetValue("DEVICETYPE", $RxArr->DeviceType); }	
 				if ($this->GetValue("DEVICESERIAL") !== $RxArr->DeviceSerial) { $this->SetValue("DEVICESERIAL", $RxArr->DeviceSerial); }
 
-				// Da wir nun wissen, welches Modell wir haben (11 oder 22KW),
+				// Da wir nun wissen, welches Modell wir haben (11kW oder 22KW),
 				// können wir nun das passende Profil für MaxCurrent einstellen.
 				// Dazu registrieren wir die Variable einfach neu. Ist diese bereits vorh., wird sie nur aktualisiert
 				if ( strpos($RxArr->DeviceType, 'W11') !== false ) {
@@ -272,11 +273,12 @@
 							);
 
 			// Daten ans übergeordnete Parent-Modul (hier Splitter) senden
-			$this->SendDataToParent( json_encode($TxArr) );
+			if ($this->HasActiveParent()) {
+				$this->SendDataToParent( json_encode($TxArr) );
+			}
 
 			// DebugLog ausgeben
 			$this->SendDebug('Send GetState', str_replace(chr(10),'', print_r($TxArr, true)), 0);
-
 
 			// aktualisiert der Fehlerstatus
 			$this->UpdateErrorState();
@@ -294,10 +296,14 @@
 							);
 
 			// Daten ans übergeordnete Parent-Modul (hier Splitter) senden
-			$this->SendDataToParent( json_encode($TxArr) );
+			if ($this->HasActiveParent()) {
+				$this->SendDataToParent( json_encode($TxArr) );
 
-			// DebugLog ausgeben
-			$this->SendDebug('Send GetDeviceIdent', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+				// DebugLog ausgeben
+				$this->SendDebug('Send GetDeviceIdent', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+
+				$this->SetTimerInterval("GetDeviceIdentTimer", 0);
+			}
 		}
 
 
@@ -313,10 +319,12 @@
 							);
 			
 			// Daten an die übergeordnete Parent-Instanz (hier Splitter) senden
-			$this->SendDataToParent( json_encode($TxArr) );
+			if ($this->HasActiveParent()) {
+				$this->SendDataToParent( json_encode($TxArr) );
 
-			// DebugLog ausgeben
-			$this->SendDebug('Send SetLockOutlet', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+				// DebugLog ausgeben
+				$this->SendDebug('Send SetLockOutlet', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+			}
 		}
 
 
@@ -336,10 +344,12 @@
 							);
 			
 			// Daten an die übergeordnete Parent-Instanz (hier Splitter) senden
-			$this->SendDataToParent( json_encode($TxArr) );
+			if ($this->HasActiveParent()) {
+				$this->SendDataToParent( json_encode($TxArr) );
 
-			// DebugLog ausgeben
-			$this->SendDebug('Send SetMaxCurrent', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+				// DebugLog ausgeben
+				$this->SendDebug('Send SetMaxCurrent', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+			}
 		}
 
 
@@ -359,10 +369,12 @@
 							);
 			
 			// Daten an die übergeordnete Parent-Instanz (hier Splitter) senden
-			$this->SendDataToParent( json_encode($TxArr) );
+			if ($this->HasActiveParent()) {
+				$this->SendDataToParent( json_encode($TxArr) );
 
-			// DebugLog ausgeben
-			$this->SendDebug('Send SetDeviceID', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+				// DebugLog ausgeben
+				$this->SendDebug('Send SetDeviceID', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+			}
 		}
 
 
@@ -377,10 +389,12 @@
 							);
 			
 			// Daten an die übergeordnete Parent-Instanz (hier Splitter) senden
-			$this->SendDataToParent( json_encode($TxArr) );
+			if ($this->HasActiveParent()) {
+				$this->SendDataToParent( json_encode($TxArr) );
 
-			// DebugLog ausgeben
-			$this->SendDebug('Send ResetDevice', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+				// DebugLog ausgeben
+				$this->SendDebug('Send ResetDevice', str_replace(chr(10),'', print_r($TxArr, true)), 0);
+			}
 		}
 
 
