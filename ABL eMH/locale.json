@@ -31,11 +31,11 @@
 
             "Waiting for EV":                           "Warte auf EV",
             "EV is asking for charging":                "EV fragt nach Ladeerlaubnis",
-            "EV has the permission to charge":          "EV hat Erlaubnis zum Laden",
+            "EV has the permission to charge":          "EV hat Ladeerlaubnis",
             "EV is charged":                            "EV wird geladen",
             "C2, reduced current (error F16, F17)":     "EV lädt mit reduziertem Strom (Fehler F16, F17)",
             "C2, reduced current (imbalance F15)":      "EV lädt mit reduziertem Strom (Unsymmetrie F15)",
-            "Outlet disabled":                          "Anschluss deaktiviert",
+            "Outlet disabled":                          "Anschluss gesperrt",
             "Production test":                          "Produktionstest",
             "EVCC setup mode":                          "EVCC-Konfigurationsmodus",
             "Bus idle":                                 "Bus im Leerlauf",
