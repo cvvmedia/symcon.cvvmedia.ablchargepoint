@@ -5,7 +5,7 @@ Damit ist es möglich, den Status der Wallboxen abzufragen sowie die maximale La
 
 Unterstützt werden folgende Wallboxen des Herstellers:
 
-- eMH1 11kW  (ab Herstelldatum 03.2021 keine Strommessung mehr)
+- eMH1 11kW  (ab Herstelldatum Q2-2021 keine Strommessung mehr verbaut!)
 - eMH1 22kW
 - eMH2 22kW  (nur ohne Backend im StandAlone Modus)
 
