@@ -47,7 +47,7 @@
 			IPS_CreateVariableProfile('ABLEMH.ErrorState', 0);
 			IPS_SetVariableProfileIcon('ABLEMH.ErrorState', 'Warning');
 			IPS_SetVariableProfileAssociation('ABLEMH.ErrorState', 0, $this->Translate('OK'), '', -1);
-			IPS_SetVariableProfileAssociation('ABLEMH.ErrorState', 1, $this->Translate('Error'), '', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.ErrorState', 1, $this->Translate('Error'), 'Warning', 0xFF0000);
 
 			// Erstelle Variablenprofil für Lade-Zustände
 			if (IPS_VariableProfileExists('ABLEMH.OutletState') === true) {
@@ -65,17 +65,17 @@
 			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'E1', $this->Translate('Production test'), 'Information', -1);
 			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'E2', $this->Translate('EVCC setup mode'), 'Information', -1);
 			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'E3', $this->Translate('Bus idle'), 'Information', -1);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F1', $this->Translate('Unintended closed contact (Welding)'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F2', $this->Translate('Internal error'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F3', $this->Translate('DC residual current detected'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F4', $this->Translate('Upstream communication timeout'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F5', $this->Translate('Lock of socket failed'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F6', $this->Translate('CS out of range'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F7', $this->Translate('State D requested by EV'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F8', $this->Translate('CP out of range'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F9', $this->Translate('Overcurrent detected'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'FA', $this->Translate('Temperature outside limits'), 'Warning', 0xFFFF00);
-			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'FB', $this->Translate('Unintended opened contact'), 'Warning', 0xFFFF00);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F1', $this->Translate('Unintended closed contact (Welding)'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F2', $this->Translate('Internal error'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F3', $this->Translate('DC residual current detected'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F4', $this->Translate('Upstream communication timeout'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F5', $this->Translate('Lock of socket failed'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F6', $this->Translate('CS out of range'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F7', $this->Translate('State D requested by EV'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F8', $this->Translate('CP out of range'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'F9', $this->Translate('Overcurrent detected'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'FA', $this->Translate('Temperature outside limits'), 'Warning', 0xFF0000);
+			IPS_SetVariableProfileAssociation('ABLEMH.OutletState', 'FB', $this->Translate('Unintended opened contact'), 'Warning', 0xFF0000);
 
 
 			// Variablen der Instanz-Konfigurationsseite erstellen
@@ -90,7 +90,7 @@
 			$this->RegisterVariableFloat('CURRENTL1', $this->Translate('Current L1'), '~Ampere', 5);
 			$this->RegisterVariableFloat('CURRENTL2', $this->Translate('Current L2'), '~Ampere', 6);
 			$this->RegisterVariableFloat('CURRENTL3', $this->Translate('Current L3'), '~Ampere', 7);
-			$this->RegisterVariableInteger('MAXCURRENT', $this->Translate('Max Output Current'), 'ABLEMH.MaxCurrent.32', 8);	// Erstmal der 32A Profil
+			$this->RegisterVariableInteger('MAXCURRENT', $this->Translate('Max Output Current'), 'ABLEMH.MaxCurrent.32', 8);	// Erstmal das 32A-VarProfil
 			$this->RegisterVariableBoolean('ERROR_DEVICE', $this->Translate('Device Error'), 'ABLEMH.ErrorState', 9);
 			$this->RegisterVariableBoolean('ERROR_COMMUNICATION', $this->Translate('Communication Error'), 'ABLEMH.ErrorState', 10);
 			$this->RegisterVariableBoolean('INPUTEN1', $this->Translate('Input EN1'), '~Switch', 11);
