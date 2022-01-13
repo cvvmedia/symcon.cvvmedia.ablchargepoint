@@ -5,7 +5,7 @@ Die Instanz ABL eMH repräsentiert eine einzelne Wallbox vom Typ eMH.
 ### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-vorraussetzungen)
+2. [Voraussetzungen](#2-voraussetzungen)
 3. [Software-Installation](#3-software-installation)
 4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
 5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
@@ -24,7 +24,7 @@ Die eMH1 kann ab Baujahr Q2-2021 in der 11kW-Version keine Ströme mehr messen,
 da die notwendigen Strommesswandler nicht mehr verbaut werden. Die 22kW-Version ist davon nicht betroffen.
 
 
-### 2. Vorraussetzungen
+### 2. Voraussetzungen
 
 - IP-Symcon ab Version 5.6
 - Installierte ABL Chargepoint Splitter Instanz zur Busanbindung
