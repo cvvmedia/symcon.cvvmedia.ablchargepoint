@@ -6,7 +6,7 @@ Bei letzteren ist ein Converter von LAN auf RS485 Bus notwendig.
 ### Inhaltsverzeichnis
 
 1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-vorraussetzungen)
+2. [Voraussetzungen](#2-voraussetzungen)
 3. [Software-Installation](#3-software-installation)
 4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
 
@@ -15,7 +15,7 @@ Bei letzteren ist ein Converter von LAN auf RS485 Bus notwendig.
 
 Dies ist die Splitterinstanz, die die Kommunikation mit dem Bus koordiniert.
 
-### 2. Vorraussetzungen
+### 2. Voraussetzungen
 
 - IP-Symcon ab Version 5.6
 - Alle Wallboxen müssen via RS485 an einem Bus angeschlossen sein
