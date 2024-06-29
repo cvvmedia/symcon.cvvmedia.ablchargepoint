@@ -21,6 +21,7 @@
             "Current L1":                               "Ladestrom L1",
             "Current L2":                               "Ladestrom L2",
             "Current L3":                               "Ladestrom L3",
+            "Current Power":                            "Ladeleistung",
             "Max Output Current":                       "Maximaler Ladestrom",
             "Device Error":                             "Gerätefehler",
             "Communication Error":                      "Kommunikationsfehler",

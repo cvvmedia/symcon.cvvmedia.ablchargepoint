@@ -87,16 +87,17 @@
 			$this->RegisterVariableBoolean('CHARGING', $this->Translate('EV charging'), 'ABLEMH.BoolState', 2);
 			$this->RegisterVariableBoolean('OUTLETLOCKED', $this->Translate('Outlet Locked'), '~Lock', 3);
 			$this->RegisterVariableString('OUTLETSTATE', $this->Translate('Outlet State'), 'ABLEMH.OutletState', 4);
-			$this->RegisterVariableFloat('CURRENTL1', $this->Translate('Current L1'), '~Ampere', 5);
-			$this->RegisterVariableFloat('CURRENTL2', $this->Translate('Current L2'), '~Ampere', 6);
-			$this->RegisterVariableFloat('CURRENTL3', $this->Translate('Current L3'), '~Ampere', 7);
-			$this->RegisterVariableInteger('MAXCURRENT', $this->Translate('Max Output Current'), 'ABLEMH.MaxCurrent.32', 8);	// Erstmal das 32A-VarProfil
-			$this->RegisterVariableBoolean('ERROR_DEVICE', $this->Translate('Device Error'), 'ABLEMH.ErrorState', 9);
-			$this->RegisterVariableBoolean('ERROR_COMMUNICATION', $this->Translate('Communication Error'), 'ABLEMH.ErrorState', 10);
-			$this->RegisterVariableBoolean('INPUTEN1', $this->Translate('Input EN1'), '~Switch', 11);
-			$this->RegisterVariableBoolean('INPUTEN2', $this->Translate('Input EN2'), '~Switch', 12);
-			$this->RegisterVariableString('DEVICETYPE', $this->Translate('Device Type'), '', 13);
-			$this->RegisterVariableString('DEVICESERIAL', $this->Translate('Device Serialnumber'), '', 14);
+			$this->RegisterVariableFloat('CURRENTPOWER', $this->Translate('Current Power'), '~Watt', 5);
+			$this->RegisterVariableFloat('CURRENTL1', $this->Translate('Current L1'), '~Ampere', 6);
+			$this->RegisterVariableFloat('CURRENTL2', $this->Translate('Current L2'), '~Ampere', 7);
+			$this->RegisterVariableFloat('CURRENTL3', $this->Translate('Current L3'), '~Ampere', 8);
+			$this->RegisterVariableInteger('MAXCURRENT', $this->Translate('Max Output Current'), 'ABLEMH.MaxCurrent.32', 9);	// Erstmal das 32A-VarProfil
+			$this->RegisterVariableBoolean('ERROR_DEVICE', $this->Translate('Device Error'), 'ABLEMH.ErrorState', 10);
+			$this->RegisterVariableBoolean('ERROR_COMMUNICATION', $this->Translate('Communication Error'), 'ABLEMH.ErrorState', 11);
+			$this->RegisterVariableBoolean('INPUTEN1', $this->Translate('Input EN1'), '~Switch', 12);
+			$this->RegisterVariableBoolean('INPUTEN2', $this->Translate('Input EN2'), '~Switch', 13);
+			$this->RegisterVariableString('DEVICETYPE', $this->Translate('Device Type'), '', 14);
+			$this->RegisterVariableString('DEVICESERIAL', $this->Translate('Device Serialnumber'), '', 15);
 
 			// Aktiviert die Standardaktion von Variablen, um diese über das Webfront schalten zu können
 			// => Die Aktion muss über die Funktion "RequestAction" verarbeitet werden
@@ -184,13 +185,19 @@
 				if ($this->GetValue("OUTLETSTATE") !== $outletstate) { $this->SetValue("OUTLETSTATE", $outletstate); }
 
 				$temp = (float) $RxArr->CurrentL1;
+				$power = (float) ($temp * 230);	// Wert zur Gesamtleistung hinzufügen
 				if ($this->GetValue("CURRENTL1") != $temp) { $this->SetValue("CURRENTL1", $temp); }
 
 				$temp = (float) $RxArr->CurrentL2;
+				$power = (float) $power + ($temp * 230);	// Wert zur Gesamtleistung hinzufügen
 				if ($this->GetValue("CURRENTL2") != $temp) { $this->SetValue("CURRENTL2", $temp); }
 
 				$temp = (float) $RxArr->CurrentL3;
+				$power = (float) $power + ($temp * 230);	// Wert zur Gesamtleistung hinzufügen
 				if ($this->GetValue("CURRENTL3") != $temp) { $this->SetValue("CURRENTL3", $temp); }
+				
+				$power = round($power, 1);
+				if ($this->GetValue("CURRENTPOWER") != $power) { $this->SetValue("CURRENTPOWER", $power); }
 				
 				$temp = (int) $RxArr->CurrentMax;
 				if ($this->GetValue("MAXCURRENT") != $temp) { $this->SetValue("MAXCURRENT", $temp); }
