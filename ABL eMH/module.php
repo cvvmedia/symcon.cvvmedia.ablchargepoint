@@ -185,18 +185,18 @@
 				if ($this->GetValue("OUTLETSTATE") !== $outletstate) { $this->SetValue("OUTLETSTATE", $outletstate); }
 
 				$temp = (float) $RxArr->CurrentL1;
-				$power = (float) ($temp * 230);	// Wert zur Gesamtleistung hinzufügen
+				$power = (float) ($temp * 230);	// 1. Wert der Gesamtleistung setzen
 				if ($this->GetValue("CURRENTL1") != $temp) { $this->SetValue("CURRENTL1", $temp); }
 
 				$temp = (float) $RxArr->CurrentL2;
-				$power = (float) $power + ($temp * 230);	// Wert zur Gesamtleistung hinzufügen
+				$power = (float) $power + ($temp * 230);	// 2. Wert der Gesamtleistung setzen
 				if ($this->GetValue("CURRENTL2") != $temp) { $this->SetValue("CURRENTL2", $temp); }
 
 				$temp = (float) $RxArr->CurrentL3;
-				$power = (float) $power + ($temp * 230);	// Wert zur Gesamtleistung hinzufügen
+				$power = (float) $power + ($temp * 230);	// 3. Wert der Gesamtleistung setzen
 				if ($this->GetValue("CURRENTL3") != $temp) { $this->SetValue("CURRENTL3", $temp); }
 				
-				$power = round($power, 1);
+				$power = round($power);
 				if ($this->GetValue("CURRENTPOWER") != $power) { $this->SetValue("CURRENTPOWER", $power); }
 				
 				$temp = (int) $RxArr->CurrentMax;
